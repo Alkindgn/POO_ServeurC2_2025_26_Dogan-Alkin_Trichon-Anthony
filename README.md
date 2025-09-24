@@ -1,11 +1,9 @@
 # POO_ServeurC2_2025_26_Dogan-Alkin_Trichon-Anthony
 
-# Disclaimer
 
-This project is intended solely for educational purposes. It is designed to help users learn about cybersecurity, programming, and related topics. By using this software, you agree to do so within the confines of the law and with full responsibility for your actions.
 
-<div style="color:red">**We do not condone or encourage any form of malicious activity** or illegal actions. Any use of this project for unauthorized, harmful, or illegal purposes is strictly prohibited. We disclaim any responsibility for damages or consequences resulting from misuse.</div>
-
+> **Warning:**  
+> **We do not condone or encourage any form of malicious activity** or illegal actions. Any use of this project for unauthorized, harmful, or illegal purposes is strictly prohibited. We disclaim any responsibility for damages or consequences resulting from misuse.
 Use this project at your own risk.
 
 
