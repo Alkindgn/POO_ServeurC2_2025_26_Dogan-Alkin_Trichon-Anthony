@@ -30,3 +30,6 @@ Surveiller les connexions réseau sortantes inhabituelles (ports non standards, 
 Rechercher les processus Python persistants exécutant des connexions réseau.
 Vérifier les logs sudo et apt pour installations inattendues.
 Utiliser des EDR/IDS dans les environnements de production.
+
+
+A COMPLETER ...
