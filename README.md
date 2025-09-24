@@ -2,7 +2,8 @@
 
 
 
-> **Warning:**  
+> **Warning:**
+> 
 > **We do not condone or encourage any form of malicious activity** or illegal actions. Any use of this project for unauthorized, harmful, or illegal purposes is strictly prohibited. We disclaim any responsibility for damages or consequences resulting from misuse.
 Use this project at your own risk.
 
