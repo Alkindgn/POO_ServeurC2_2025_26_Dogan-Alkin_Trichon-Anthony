@@ -33,6 +33,10 @@ server.py
 
 ## 🚀 Comment l'utiliser ?
 
+> **Pour qu'une machine cible se connecte au serveur, il faut exécuter le script `client.py` sur la machine cible.**
+> 
+> **Attention : pour que `client.py` et `server.py` fonctionnent correctement, il est nécessaire que les fichiers de classe (`client_class.py` et `server_class.py`) soient présents dans le même répertoire.**
+
 Lorsque vous lancez le serveur avec la commande :
 
 ```bash
@@ -41,8 +45,7 @@ python server.py
 
 Vous verrez apparaître le menu principal du serveur C2 :
 
-![Menu du serveur C2](<img width="542" height="156" alt="image" src="https://github.com/user-attachments/assets/52e42903-9bca-4538-857c-888e06a64c62" />
-)
+![Menu du serveur C2](https://github.com/user-attachments/assets/52e42903-9bca-4538-857c-888e06a64c62)
 
 **Description des options du menu :**
 
@@ -50,11 +53,14 @@ Vous verrez apparaître le menu principal du serveur C2 :
    Affiche la liste des machines cibles actuellement connectées au serveur.
 
 2. **Sélectionner une cible**  
-   Permet de choisir une cible parmi celles connectées pour envoyer des commandes à distance.
+   Permet de choisir une cible parmi celles connectées pour envoyer des commandes à distance.  
+   **Pour revenir au menu principal, il suffit d'utiliser la commande** `back` dans le prompt cible.
 
 3. **Quitter**  
    Ferme proprement le serveur C2.
 
-Choisissez l'option souhaitée en entrant le numéro correspondant.
+## 🛠️ Fonctionnalités avancées
 
-_(Ajoutez ici les étapes ou instructions complémentaires pour utiliser le projet selon vos besoins)_
+Le logiciel client installe automatiquement l'outil **nmap** sur la machine cible (via apt).  
+Cela permet ensuite de lancer des scans réseau depuis le serveur, directement sur le réseau de la cible.  
+Ainsi, vous pouvez exécuter des commandes nmap à distance pour explorer ou auditer le réseau local de la machine cible.
