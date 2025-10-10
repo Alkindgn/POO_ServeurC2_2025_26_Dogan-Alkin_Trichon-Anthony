@@ -1,35 +1,60 @@
-# POO_ServeurC2_2025_26_Dogan-Alkin_Trichon-Anthony
-
-
-
-> **Warning:**
+> **Avertissement / Disclaimer:**
 > 
-> **We do not condone or encourage any form of malicious activity** or illegal actions. Any use of this project for unauthorized, harmful, or illegal purposes is strictly prohibited. We disclaim any responsibility for damages or consequences resulting from misuse.
-Use this project at your own risk.
+> **Nous ne cautionnons ni n'encourageons aucune activité malveillante** ou action illégale. Toute utilisation de ce projet à des fins non autorisées, nuisibles ou illégales est strictement interdite. Nous déclinons toute responsabilité quant aux dommages ou conséquences résultant d'un usage inapproprié.  
+> Utilisez ce projet à vos propres risques.
+>  
+> **We do not condone or encourage any form of malicious activity** or illegal actions. Any use of this project for unauthorized, harmful, or illegal purposes is strictly prohibited. We disclaim any responsibility for damages or consequences resulting from misuse.  
+> Use this project at your own risk.
 
+# 📦 POO_ServeurC2_2025_26_Dogan-Alkin_Trichon-Anthony
 
+## 📝 Description du projet
 
-Le code illustre des concepts : connexion réseau, réception/traitement de commandes, gestion du répertoire courant, tentative d’installation d’un paquet (nmap)
+Ce projet est un serveur C2 (Command & Control) développé en Python, permettant de gérer plusieurs machines cibles à distance.  
+L'objectif est que la machine cible déclenche le script client (`client.py`), lequel se connecte automatiquement au serveur C2.  
+Depuis le serveur, il est possible de sélectionner une cible connectée et d'exécuter des commandes sur celle-ci.
 
-Prérequis
-Une machine de laboratoire isolée (VM ou réseau fermé).
-Python 3.x installé
+## 📦 Dépendances
 
+Comme il s'agit de scripts Python, il est absolument nécessaire d'avoir Python installé aussi bien côté client que côté serveur.  
+Assurez-vous que Python (3.x recommandé) soit disponible sur toutes les machines impliquées dans le projet.
 
-Comportement attendu (haut-niveau)
+## 🗂️ Structure du projet
 
-Le client tente de se connecter à un serveur d’écoute configuré.
-Il accepte des commandes simples depuis le serveur — uniquement à des fins de démonstration dans un labo.
-Il conserve un cwd persistant pour l’exécution des commandes.
-Il contient une routine d’installation de nmap (adaptée à Debian/Ubuntu) 
+```
+# Coté client (Logiciel à envoyer à la cible) :
+client_class.py
+client.py
 
+# Coté serveur (Logiciel serveur) :
+server_class.py
+server.py
+```
 
-Détection (pour les défenseurs)
-Si vous souhaitez vous entraîner à détecter ce type d’activité dans un cadre défensif :
-Surveiller les connexions réseau sortantes inhabituelles (ports non standards, IPs externes).
-Rechercher les processus Python persistants exécutant des connexions réseau.
-Vérifier les logs sudo et apt pour installations inattendues.
-Utiliser des EDR/IDS dans les environnements de production.
+## 🚀 Comment l'utiliser ?
 
+Lorsque vous lancez le serveur avec la commande :
 
-A COMPLETER ...
+```bash
+python server.py
+```
+
+Vous verrez apparaître le menu principal du serveur C2 :
+
+![Menu du serveur C2](<img width="542" height="156" alt="image" src="https://github.com/user-attachments/assets/52e42903-9bca-4538-857c-888e06a64c62" />
+)
+
+**Description des options du menu :**
+
+1. **Lister les cibles**  
+   Affiche la liste des machines cibles actuellement connectées au serveur.
+
+2. **Sélectionner une cible**  
+   Permet de choisir une cible parmi celles connectées pour envoyer des commandes à distance.
+
+3. **Quitter**  
+   Ferme proprement le serveur C2.
+
+Choisissez l'option souhaitée en entrant le numéro correspondant.
+
+_(Ajoutez ici les étapes ou instructions complémentaires pour utiliser le projet selon vos besoins)_
